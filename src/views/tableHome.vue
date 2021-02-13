@@ -1,15 +1,18 @@
 <template>
-    <div>
-<h1>Acá desarrolla Marcelo</h1>
-    </div>
+<div>
+<table-header></table-header>
+
+</div>
 </template>
 
 <script>
+import tableHeader from '../views/tableHeader.vue'
     export default {
+  components: { tableHeader },
         
     }
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
 
 </style>
