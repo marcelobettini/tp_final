@@ -24,7 +24,7 @@ const routes = [
     path: '/tableHome',
     name: 'tableHome',
     component: tableHome,
-  }
+  },
 ]
 
 const router = new VueRouter({

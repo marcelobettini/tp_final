@@ -11,16 +11,16 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="productos.html">Productos</a>
+                    <router-link class="nav-link" to="#">Productos</router-link>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link disabled" href="#">Clientes</a>
+                    <router-link class="nav-link disabled" to="#">Clientes</router-link>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link disabled" href="#">Proveedores</a>
+                    <router-link class="nav-link disabled" to="#">Proveedores</router-link>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link disabled" href="#">Personal</a>
+                    <router-link class="nav-link disabled" to="#">Personal</router-link>
                 </li>
             </ul>
         </div>

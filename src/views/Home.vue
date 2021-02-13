@@ -1,15 +1,15 @@
 <template>
-  <div class="container d-flex">
-    <div>
-      <img alt="AMEMT logo" src="../assets/launcher/amemt.jpg" />
-    </div>
-    <div>
+  <div class="container mt-5">
+    <div class="d-flex justify-content-around align-items-center">
+      <img alt="AMEMT logo" src="../assets/launcher/amemt.jpg" />    
       <img alt="CEPIT logo" src="../assets/launcher/cepit.png" />
-    </div>
+      </div>    
     <Launcher
+    class="mt-4 p-4"
       msg="Trabajo Final Front-End"
       devs="Micaela Perone - Marcelo Bettini"
     />
+    
   </div>
 </template>
 
