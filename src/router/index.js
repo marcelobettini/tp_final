@@ -4,6 +4,8 @@ import Home from '../views/Home.vue'
 import About from '../views/About'
 import tableHome from '../views/tableHome'
 import tableTbl from '../views/tableTbl'
+import editModal from '../components/editModal'
+
 
 Vue.use(VueRouter)
 
@@ -30,6 +32,11 @@ const routes = [
     path: '/tableTbl',
     name: 'tableTbl',
     component: tableTbl,
+  },
+  {
+    path: '/editModal',
+    name: 'editModal',
+    component: editModal,
   },
 ]
 

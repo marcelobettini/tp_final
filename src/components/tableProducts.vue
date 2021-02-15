@@ -1,39 +1,65 @@
 <template>
   <div class="container">
-    <table class="table table-hover">
+    <table class="table table-dark">
       <thead>
         <tr>
-          <th scope="col" v-for="key in keyNames" :key="key.index"> {{ key.toUpperCase() }}</th>
+          <th
+            class="text-warning"
+            scope="col"
+            v-for="key in keyNames"
+            :key="key.index"
+          >
+            {{ key.toUpperCase() }}
+          </th>
         </tr>
       </thead>
       <tbody>
         <tr v-for="product in products" :key="product.id" product="product">
-          <td>{{product.id}}</td>
-          <td>{{product.item}}</td>
-          <td>{{product.marca}}</td>
-          <td>{{product.presentacion}}</td>
-          <td>{{product.precio}}</td>
-          <td>{{product.stock}}</td>
-          <td><button>borrar</button></td>
-          <td><button>editar</button></td>
+          <td>{{ product.id }}</td>
+          <td>{{ product.item }}</td>
+          <td>{{ product.marca }}</td>
+          <td>{{ product.presentacion }}</td>
+          <td>$ {{ product.precio }}</td>
+          <td>{{ product.stock }}</td>
+          <td>
+            <button
+              class="btn btn-sm btn-success"
+              data-toggle="modal"
+              data-target="#Modal"
+              @click.prevent="passToEditModal(product)"
+            >
+              editar
+            </button>
+          </td>
+          <td><button class="btn btn-sm btn-danger">borrar</button></td>
         </tr>
       </tbody>
     </table>
+    <editModal @edit-product="editProduct" :product="p" />
   </div>
 </template>
 
 <script>
+import editModal from "../components/editModal";
 export default {
+  components: {
+    editModal,
+  },
   data() {
     return {
       products: [],
-      keyNames: []
-    };
+      product: {
+        type: Object,
+        required: true,
+      },
+      keyNames: [],
+      p: {},    
+      };
   },
   mounted() {
     const url = "https://5fc82e232af77700165ad172.mockapi.io/api/productos";
-    this.getProducts(url);    
-  },
+    this.getProducts(url);
+  },  
   methods: {
     getProducts(url) {
       fetch(url, {
@@ -42,13 +68,36 @@ export default {
       })
         .then((res) => res.json())
         .then((data) => {
-          this.products = data;          
-          this.keyNames = Object.keys(data[0]);          
+          this.products = data;
+          this.keyNames = Object.keys(data[0]);
         });
-        
+    },    
+    passToEditModal(p) {
+    this.p = p  
     },
+    editProduct(p) {
+      const url = `https://5fc82e232af77700165ad172.mockapi.io/api/productos/${p.product.id}`;    
+      console.log(url)     
+      console.log(p.product.id, p.product.item, p.product.marca, p.product.presentacion, p.product.precio, p.product.stock)
+      fetch(url, {
+        method: "PUT",
+        body: JSON.stringify({
+          id: p.product.id,          
+          item: p.product.item,
+          marca: p.product.marca,
+          precio: p.product.precio,
+          presentacion: p.product.presentacion,          
+          stock: p.product.stock
+        }),
+        headers: { "Content-Type": "application/JSON" },
+      }).then((res) => res.json());      
+      // .then(this.getProducts("https://5fc82e232af77700165ad172.mockapi.io/api/productos"))      
+    }
   },
 };
 </script>
-
-<style scoped></style>
+<style scoped>
+tbody tr:nth-child(odd) {
+  background-color: rgb(41, 44, 43);
+}
+</style>
