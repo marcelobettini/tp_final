@@ -25,15 +25,15 @@
         </div>
         <div class="modal-body">
           <Label for="item">ITEM</Label><br />
-          <input name="item" :value="product.item"/><br />
+          <input name="item" v-model="p.item" /><br />
           <Label for="marca">MARCA</Label><br />
-          <input name="marca" :value="product.marca"/><br />
+          <input name="marca" v-model="p.marca" /><br />
           <Label for="presentacion">PRESENTACIÓN</Label><br />
-          <input name="presentacion" :value="product.presentacion"/><br />
+          <input name="presentacion" v-model="p.presentacion" /><br />
           <Label for="precio">PRECIO</Label><br />
-          <input name="precio" :value="product.precio"/><br />
+          <input name="precio" v-model="p.precio" /><br />
           <Label for="stock">STOCK</Label><br />
-          <input name="stock" :value="product.stock"/>
+          <input name="stock" v-model="p.stock" />
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">
@@ -57,30 +57,30 @@
 export default {
   data() {
     return {
-      localProd: {
-        type: Object,
-        required: true,
-      },
+      p: {},
     };
   },
   props: {
-    product: {},
+    product: {
+      type: Object,
+      required: true,
+    },
   },
-  renderTracked() {
-    this.getProduct(this.product.id);    
+  updated() {    
+    this.p = this.product
+    // {
+    //   id: this.product.id,
+    //   item: this.product.item,
+    //   marca: this.product.marca,
+    //   presentacion: this.product.presentacion,
+    //   precio: this.product.precio,
+    //   stock: this.product.stock,
+    // };        
   },
   methods: {
-    getProduct(id) {
-      fetch(`https://5fc82e232af77700165ad172.mockapi.io/api/productos/${id}`)
-        .then((resp) => resp.json())
-        .then((data) => {
-          this.localProd = data;
-          console.log(this.localProd);
-        });
-    },
-    editProduct() {
+    editProduct() {            
       this.$emit("edit-product", {
-        product: this.product,
+        product: this.p,
       });
     },
   },

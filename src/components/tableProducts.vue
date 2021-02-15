@@ -76,9 +76,7 @@ export default {
     this.p = p  
     },
     editProduct(p) {
-      const url = `https://5fc82e232af77700165ad172.mockapi.io/api/productos/${p.product.id}`;    
-      console.log(url)     
-      console.log(p.product.id, p.product.item, p.product.marca, p.product.presentacion, p.product.precio, p.product.stock)
+      const url = `https://5fc82e232af77700165ad172.mockapi.io/api/productos/${p.product.id}`;          
       fetch(url, {
         method: "PUT",
         body: JSON.stringify({
