@@ -66,19 +66,18 @@ export default {
       required: true,
     },
   },
-  updated() {    
-    this.p = this.product
-    // {
-    //   id: this.product.id,
-    //   item: this.product.item,
-    //   marca: this.product.marca,
-    //   presentacion: this.product.presentacion,
-    //   precio: this.product.precio,
-    //   stock: this.product.stock,
-    // };        
+  updated() {
+    this.p = Object.assign(this.product);    
+    //esto era innecesario porque el Object.assign ya copiaba el objeto completo
+    // this.p.id = this.product.id; 
+    // this.p.item = this.product.item;
+    // this.p.marca = this.product.marca;
+    // this.p.presentacion = this.product.presentacion;
+    // this.p.precio = this.product.precio;
+    // this.p.stock = this.product.stock;
   },
   methods: {
-    editProduct() {            
+    editProduct() {
       this.$emit("edit-product", {
         product: this.p,
       });
