@@ -35,7 +35,7 @@
         </tr>
       </tbody>
     </table>
-    <editModal @edit-product="editProduct" :product="p" />
+    <editModal @edit-product="editProduct" @get-products="getProducts" :product="p" :url="url"/>
   </div>
 </template>
 
@@ -54,6 +54,7 @@ export default {
       },
       keyNames: [],
       p: {},    
+      url: ""
       };
   },
   mounted() {
@@ -72,8 +73,8 @@ export default {
           this.keyNames = Object.keys(data[0]);
         });
     },    
-    passToEditModal(p) {
-    this.p = p  
+    passToEditModal(product) {
+    this.p = Object.assign(product)
     },
     editProduct(p) {
       const url = `https://5fc82e232af77700165ad172.mockapi.io/api/productos/${p.product.id}`;          
@@ -88,9 +89,9 @@ export default {
           stock: p.product.stock
         }),
         headers: { "Content-Type": "application/JSON" },
-      }).then((res) => res.json());      
-      // .then(this.getProducts("https://5fc82e232af77700165ad172.mockapi.io/api/productos"))      
-    }
+      }).then((res) => res.json());            
+    },   
+    
   },
 };
 </script>
@@ -98,4 +99,5 @@ export default {
 tbody tr:nth-child(odd) {
   background-color: rgb(41, 44, 43);
 }
+
 </style>

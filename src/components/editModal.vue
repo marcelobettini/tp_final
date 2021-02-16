@@ -7,8 +7,10 @@
     role="dialog"
     aria-labelledby="ModalLabel"
     aria-hidden="true"
+    data-backdrop="static"
+    data-keyboard="false"
   >
-    <div class="modal-dialog" role="document">
+    <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="ModalLabel">
@@ -19,6 +21,7 @@
             class="close"
             data-dismiss="modal"
             aria-label="Close"
+            @click.prevent="getProducts"
           >
             <span aria-hidden="true">&times;</span>
           </button>
@@ -36,7 +39,7 @@
           <input name="stock" v-model="p.stock" />
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">
+          <button type="button" class="btn btn-secondary" @click.prevent="getProducts" data-dismiss="modal">
             Cancelar
           </button>
           <button
@@ -58,6 +61,7 @@ export default {
   data() {
     return {
       p: {},
+      url: "https://5fc82e232af77700165ad172.mockapi.io/api/productos"
     };
   },
   props: {
@@ -82,6 +86,10 @@ export default {
         product: this.p,
       });
     },
+    getProducts() {
+      this.$emit("get-products", 
+      this.url )
+    }
   },
 };
 </script>
