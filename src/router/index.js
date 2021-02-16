@@ -5,6 +5,7 @@ import About from '../views/About'
 import tableHome from '../views/tableHome'
 import tableTbl from '../views/tableTbl'
 import editModal from '../components/editModal'
+import deleteModal from '../components/deleteModal'
 
 
 Vue.use(VueRouter)
@@ -37,6 +38,11 @@ const routes = [
     path: '/editModal',
     name: 'editModal',
     component: editModal,
+  },
+  {
+    path: '/deleteModal',
+    name: 'deleteModal',
+    component: deleteModal,
   },
 ]
 

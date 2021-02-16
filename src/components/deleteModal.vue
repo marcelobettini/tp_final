@@ -2,7 +2,7 @@
   <!-- Modal -->
   <div
     class="modal fade"
-    id="Modal"
+    id="deleteModal"
     tabindex="-1"
     role="dialog"
     aria-labelledby="ModalLabel"
@@ -14,7 +14,7 @@
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="ModalLabel">
-            MODIFICAR PRODUCTO - id: {{ product.id }}
+            ELIMINAR PRODUCTO - id: {{ product.id }}
           </h5>
           <button
             type="button"
@@ -28,15 +28,15 @@
         </div>
         <div class="modal-body">
           <Label for="item">ITEM</Label><br />
-          <input name="item" v-model="p.item" /><br />
+          <input name="item" v-model="p.item" disabled="true"/><br />
           <Label for="marca">MARCA</Label><br />
-          <input name="marca" v-model="p.marca" /><br />
+          <input name="marca" v-model="p.marca" disabled="true"/><br />
           <Label for="presentacion">PRESENTACIÓN</Label><br />
-          <input name="presentacion" v-model="p.presentacion" /><br />
+          <input name="presentacion" v-model="p.presentacion" disabled="true" /><br />
           <Label for="precio">PRECIO</Label><br />
-          <input name="precio" v-model="p.precio" /><br />
+          <input name="precio" v-model="p.precio" disabled="true"/><br />
           <Label for="stock">STOCK</Label><br />
-          <input name="stock" v-model="p.stock" />
+          <input name="stock" v-model="p.stock" disabled="true"/>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" @click.prevent="getProducts" data-dismiss="modal">
@@ -45,10 +45,10 @@
           <button
             type="button"
             class="btn btn-primary"
-            @click.prevent="editProduct"
+            @click.prevent="deleteProduct"            
             data-dismiss="modal"
           >
-            Modificar
+            Eliminar
           </button>
         </div>
       </div>
@@ -74,8 +74,8 @@ export default {
     this.p = Object.assign(this.product);    
   },
   methods: {
-    editProduct() {
-      this.$emit("edit-product", {
+    deleteProduct() {
+      this.$emit("delete-product", {
         product: this.p,
       });
     },

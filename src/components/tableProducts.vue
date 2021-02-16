@@ -31,19 +31,42 @@
               editar
             </button>
           </td>
-          <td><button class="btn btn-sm btn-danger">borrar</button></td>
+          <td>
+            <button
+              class="btn btn-sm btn-danger"
+              data-toggle="modal"
+              data-target="#deleteModal"
+              @click.prevent="passToDeleteModal(product)"
+            >
+              borrar
+            </button>
+          </td>
         </tr>
       </tbody>
     </table>
-    <editModal @edit-product="editProduct" @get-products="getProducts" :product="p" :url="url"/>
+        <deleteModal
+      @delete-product="deleteProduct"
+      @get-products="getProducts"
+      :product="p"
+      :url="url"
+    />
+    <editModal
+      @edit-product="editProduct"
+      @get-products="getProducts"
+      :product="p"
+      :url="url"
+    />
+
   </div>
 </template>
 
 <script>
 import editModal from "../components/editModal";
+import deleteModal from "../components/deleteModal";
 export default {
   components: {
     editModal,
+    deleteModal,
   },
   data() {
     return {
@@ -53,14 +76,14 @@ export default {
         required: true,
       },
       keyNames: [],
-      p: {},    
-      url: ""
-      };
+      p: {},
+      url: "",
+    };
   },
   mounted() {
     const url = "https://5fc82e232af77700165ad172.mockapi.io/api/productos";
     this.getProducts(url);
-  },  
+  },
   methods: {
     getProducts(url) {
       fetch(url, {
@@ -72,26 +95,33 @@ export default {
           this.products = data;
           this.keyNames = Object.keys(data[0]);
         });
-    },    
+    },
     passToEditModal(product) {
-    this.p = Object.assign(product)
+      this.p = Object.assign(product);
+    },
+    passToDeleteModal(product) {
+      this.p = Object.assign(product);
     },
     editProduct(p) {
-      const url = `https://5fc82e232af77700165ad172.mockapi.io/api/productos/${p.product.id}`;          
+      const url = `https://5fc82e232af77700165ad172.mockapi.io/api/productos/${p.product.id}`;
       fetch(url, {
         method: "PUT",
         body: JSON.stringify({
-          id: p.product.id,          
+          id: p.product.id,
           item: p.product.item,
           marca: p.product.marca,
           precio: p.product.precio,
-          presentacion: p.product.presentacion,          
-          stock: p.product.stock
+          presentacion: p.product.presentacion,
+          stock: p.product.stock,
         }),
         headers: { "Content-Type": "application/JSON" },
-      }).then((res) => res.json());            
-    },   
-    
+      }).then((res) => res.json());
+    },
+    deleteProduct(p) {
+      const url = `https://5fc82e232af77700165ad172.mockapi.io/api/productos/${p.product.id}`;
+      fetch(url, { method: "DELETE" }).then((res) => res.json());
+      this.getProducts('https://5fc82e232af77700165ad172.mockapi.io/api/productos')
+    },
   },
 };
 </script>
@@ -99,5 +129,4 @@ export default {
 tbody tr:nth-child(odd) {
   background-color: rgb(41, 44, 43);
 }
-
 </style>
