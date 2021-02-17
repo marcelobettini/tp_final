@@ -52,12 +52,15 @@
           </button>
         </div>
       </div>
+      <Spinner/>
     </div>
   </div>
 </template>
 
 <script>
+import Spinner from '../components/Spinner'
 export default {
+  components: {Spinner},
   data() {
     return {
       p: {},
