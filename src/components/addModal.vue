@@ -2,7 +2,7 @@
   <!-- Modal -->
   <div
     class="modal fade"
-    id="editModal"
+    id="addModal"
     tabindex="-1"
     role="dialog"
     aria-labelledby="ModalLabel"
@@ -14,14 +14,13 @@
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="ModalLabel">
-            MODIFICAR PRODUCTO - id: {{ product.id }}
+            AGREGAR PRODUCTO
           </h5>
           <button
             type="button"
             class="close"
             data-dismiss="modal"
-            aria-label="Close"
-            @click.prevent="getProducts"
+            aria-label="Close"            
           >
             <span aria-hidden="true">&times;</span>
           </button>
@@ -39,16 +38,16 @@
           <input name="stock" v-model="p.stock" />
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" @click.prevent="getProducts" data-dismiss="modal">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">
             Cancelar
           </button>
           <button
             type="button"
             class="btn btn-primary"
-            @click.prevent="editProduct"
+            @click.prevent="addProduct"
             data-dismiss="modal"
           >
-            Modificar
+            Agregar
           </button>
         </div>
       </div>
@@ -64,18 +63,10 @@ export default {
       url: "https://5fc82e232af77700165ad172.mockapi.io/api/productos"
     };
   },
-  props: {
-    product: {
-      type: Object,
-      required: true,
-    },
-  },
-  updated() {
-    this.p = Object.assign(this.product);    
-  },
+  
   methods: {
-    editProduct() {
-      this.$emit("edit-product", {
+    addProduct() {      
+      this.$emit("add-product", {
         product: this.p,
       });
     },
