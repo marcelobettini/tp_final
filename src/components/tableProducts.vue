@@ -1,14 +1,20 @@
 <template>
   <div class="container">
-    <div>
+    <div id="tableCtrl" class="container d-flex m-4 align-items-center">
       <button
-        class="btn btn-sm btn-warning"
+        class="btn btn-warning"
         data-toggle="modal"
         data-target="#addModal"
       >
         agregar
       </button>
+      <input type="checkbox" class="switch" @click="toggleShow">
+      <select v-show="!show" name="filter" id="filter">
+        <option id="noFilter">Todos los productos</option>
+        <option id="maxPrice">Filtrar precio máximo</option>
+      </select>
     </div>
+
     <table class="table table-dark">
       <thead>
         <tr>
@@ -84,6 +90,7 @@ export default {
       keyNames: [],
       p: {},
       url: "https://5fc82e232af77700165ad172.mockapi.io/api/productos",
+      show: true
     };
   },
   mounted() {
@@ -145,11 +152,48 @@ export default {
         .then((res) => res.json())
         .then(this.getProducts(this.url));
     },
+    toggleShow() {
+      this.show = !this.show
+    }
   },
 };
 </script>
 <style scoped>
 tbody tr:nth-child(odd) {
   background-color: rgb(41, 44, 43);
+}
+/* transformación del checkbox en toggle switch*/
+input[type="checkbox"] {
+  vertical-align: middle;
+  position: relative;
+  width: 50px;
+  height: 25px;
+  appearance: none;
+  background-color: #ecb80e;
+  outline: none;
+  border-radius: 10px;
+  box-shadow: 0 0 0 4px #ffae00, inset 0 0 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+input[type="checkbox"]:hover {
+  cursor: pointer;
+}
+input[type="checkbox"]:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 25px;
+  height: 25px;
+  background: rgb(255, 255, 255);
+  outline: none;
+  border-radius: 10px;
+  box-shadow: 0 0 0 1px #ffae00;
+  transform: scale(.98, .96);
+  transition: .2s;
+}
+input:checked[type="checkbox"]:before {
+  left: 25px;
 }
 </style>
