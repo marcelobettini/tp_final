@@ -1,5 +1,14 @@
 <template>
   <div class="container">
+    <div>
+      <button
+        class="btn btn-sm btn-warning"
+        data-toggle="modal"
+        data-target="#addModal"
+      >
+        agregar
+      </button>
+    </div>
     <table class="table table-dark">
       <thead>
         <tr>
@@ -25,7 +34,7 @@
             <button
               class="btn btn-sm btn-success"
               data-toggle="modal"
-              data-target="#Modal"
+              data-target="#editModal"
               @click.prevent="passToEditModal(product)"
             >
               editar
@@ -44,27 +53,24 @@
         </tr>
       </tbody>
     </table>
-        <deleteModal
-      @delete-product="deleteProduct"
-      @get-products="getProducts"
-      :product="p"
-      :url="url"
-    />
-    <editModal
+    <add-modal @add-product="addProduct" />
+    <delete-modal @delete-product="deleteProduct" :product="p" :url="url" />
+    <edit-modal
       @edit-product="editProduct"
       @get-products="getProducts"
       :product="p"
       :url="url"
     />
-
   </div>
 </template>
 
 <script>
 import editModal from "../components/editModal";
 import deleteModal from "../components/deleteModal";
+import addModal from "../components/addModal";
 export default {
   components: {
+    addModal,
     editModal,
     deleteModal,
   },
@@ -77,12 +83,12 @@ export default {
       },
       keyNames: [],
       p: {},
-      url: "",
+      url: "https://5fc82e232af77700165ad172.mockapi.io/api/productos",
     };
   },
   mounted() {
-    const url = "https://5fc82e232af77700165ad172.mockapi.io/api/productos";
-    this.getProducts(url);
+    // const url = "https://5fc82e232af77700165ad172.mockapi.io/api/productos";
+    this.getProducts(this.url);
   },
   methods: {
     getProducts(url) {
@@ -102,6 +108,22 @@ export default {
     passToDeleteModal(product) {
       this.p = Object.assign(product);
     },
+    addProduct(p) {
+      fetch(this.url, {
+        method: "POST",
+        body: JSON.stringify({
+          item: p.product.item,
+          marca: p.product.marca,
+          presentacion: p.product.presentacion,
+          precio: Number(p.product.precio),
+          stock: Number(p.product.stock),
+        }),
+        headers: { "Content-Type": "application/JSON" },
+      })
+        .then((response) => response.json())
+        .then(this.getProducts(this.url));
+    },
+
     editProduct(p) {
       const url = `https://5fc82e232af77700165ad172.mockapi.io/api/productos/${p.product.id}`;
       fetch(url, {
@@ -119,8 +141,9 @@ export default {
     },
     deleteProduct(p) {
       const url = `https://5fc82e232af77700165ad172.mockapi.io/api/productos/${p.product.id}`;
-      fetch(url, { method: "DELETE" }).then((res) => res.json());
-      this.getProducts('https://5fc82e232af77700165ad172.mockapi.io/api/productos')
+      fetch(url, { method: "DELETE" })
+        .then((res) => res.json())
+        .then(this.getProducts(this.url));
     },
   },
 };

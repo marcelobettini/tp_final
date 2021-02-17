@@ -20,8 +20,7 @@
             type="button"
             class="close"
             data-dismiss="modal"
-            aria-label="Close"
-            @click.prevent="getProducts"
+            aria-label="Close"            
           >
             <span aria-hidden="true">&times;</span>
           </button>
@@ -39,7 +38,7 @@
           <input name="stock" v-model="p.stock" disabled="true"/>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" @click.prevent="getProducts" data-dismiss="modal">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">
             Cancelar
           </button>
           <button
@@ -78,14 +77,9 @@ export default {
       this.$emit("delete-product", {
         product: this.p,
       });
-    },
-    getProducts() {
-      this.$emit("get-products", 
-      this.url )
-    }
+    },    
   },
 };
 </script>
-
 <style scoped>
 </style>
