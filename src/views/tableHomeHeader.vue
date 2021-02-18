@@ -1,8 +1,8 @@
 <template>
     <div>
-<nav class="navbar sticky-top navbar-expand bg-light">
+<nav id="tblnav" class="navbar sticky-top navbar-expand bg-light">
         <a class="navbar-brand badge-pill" href="#">
-            <img src="../assets/part2/monster.svg" width="35" height="35" alt="logo monster">
+            <router-link class="nav-link" to="/tableHome"><img src="../assets/part2/monster.svg" width="35" height="35" alt="logo monster"></router-link>
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -11,16 +11,16 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="productos.html">Productos</a>
+                    <router-link class="nav-link" to="/tableTbl">Productos</router-link>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link disabled" href="#">Clientes</a>
+                    <router-link class="nav-link disabled" to="#">Clientes</router-link>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link disabled" href="#">Proveedores</a>
+                    <router-link class="nav-link disabled" to="#">Proveedores</router-link>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link disabled" href="#">Personal</a>
+                    <router-link class="nav-link disabled" to="#">Personal</router-link>
                 </li>
             </ul>
         </div>
@@ -30,16 +30,16 @@
     </div>
 </template>
 <style>
-    nav {
+    #tblnav {
         padding: 30px;
     }
 
-    nav a {
+    #tblnav a {
         font-weight: bold;
         color: #2c3e50;
     }
 
-    #navbar a.router-link-exact-active {
+    #tblnav a.router-link-exact-active {
         color: #42b983;
     }
 </style>

@@ -3,6 +3,12 @@ import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import About from '../views/About'
 import tableHome from '../views/tableHome'
+import tableTbl from '../views/tableTbl'
+import editModal from '../components/editModal'
+import deleteModal from '../components/deleteModal'
+import addModal from '../components/addModal'
+import tableFiltered from '../components/tableFiltered'
+
 
 Vue.use(VueRouter)
 
@@ -24,6 +30,32 @@ const routes = [
     path: '/tableHome',
     name: 'tableHome',
     component: tableHome,
+  },
+  {
+    path: '/tableTbl',
+    name: 'tableTbl',
+    component: tableTbl,
+  },
+  {
+    path: '/editModal',
+    name: 'editModal',
+    component: editModal,
+  },
+  {
+    path: '/deleteModal',
+    name: 'deleteModal',
+    component: deleteModal,
+  },
+  {
+    path: '/addModal',
+    name: 'addModal',
+    component: addModal,
+  },
+  {
+    path: '/tableFiltered',
+    name: '/tableFiltered',
+    component: tableFiltered,
+    props: true
   }
 ]
 
