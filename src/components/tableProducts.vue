@@ -9,10 +9,12 @@
         agregar
       </button>
       <input type="checkbox" class="switch" @click="toggleShow">
-      <select v-show="!show" name="filter" id="filter">
-        <option id="noFilter">Todos los productos</option>
-        <option id="maxPrice">Filtrar precio máximo</option>
+      <select v-model="selected" v-show="!show" name="filter" id="filter">
+        <option selected disabled>Elija un filtro</option> 
+        <option name="nofilter" id="noFilter">Todos los productos</option>
+        <option name="maxPrice" id="maxPrice">Filtrar precio máximo</option>
       </select>
+      <button class="btn btn-sm btn-success ml-2" @click="filter" v-show="!show">filtrar</button>
     </div>
 
     <table class="table table-dark">
@@ -90,7 +92,8 @@ export default {
       keyNames: [],
       p: {},
       url: "https://5fc82e232af77700165ad172.mockapi.io/api/productos",
-      show: true
+      show: true,
+      selected: 'Elija un filtro'
     };
   },
   mounted() {
@@ -130,7 +133,6 @@ export default {
         .then((response) => response.json())
         .then(this.getProducts(this.url));
     },
-
     editProduct(p) {
       const url = `https://5fc82e232af77700165ad172.mockapi.io/api/productos/${p.product.id}`;
       fetch(url, {
@@ -154,6 +156,9 @@ export default {
     },
     toggleShow() {
       this.show = !this.show
+    },
+    filter() {
+      console.log(this.selected);
     }
   },
 };
