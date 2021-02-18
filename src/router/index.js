@@ -7,6 +7,7 @@ import tableTbl from '../views/tableTbl'
 import editModal from '../components/editModal'
 import deleteModal from '../components/deleteModal'
 import addModal from '../components/addModal'
+import tableFiltered from '../components/tableFiltered'
 
 
 Vue.use(VueRouter)
@@ -50,6 +51,12 @@ const routes = [
     name: 'addModal',
     component: addModal,
   },
+  {
+    path: '/tableFiltered',
+    name: '/tableFiltered',
+    component: tableFiltered,
+    props: true
+  }
 ]
 
 const router = new VueRouter({

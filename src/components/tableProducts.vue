@@ -13,8 +13,9 @@
         <option selected disabled>Elija un filtro</option> 
         <option name="nofilter" id="noFilter">Todos los productos</option>
         <option name="maxPrice" id="maxPrice">Filtrar precio máximo</option>
-      </select>
-      <button class="btn btn-sm btn-success ml-2" @click="filter" v-show="!show">filtrar</button>
+      </select>      
+      <input name="numFilter" id="numFilter" type="number" v-show="!show">
+      <button class="btn btn-sm btn-success ml-2" @click="filter" v-show="!show" >filtrar</button>
     </div>
 
     <table class="table table-dark">
@@ -76,11 +77,13 @@
 import editModal from "../components/editModal";
 import deleteModal from "../components/deleteModal";
 import addModal from "../components/addModal";
+
 export default {
   components: {
     addModal,
     editModal,
     deleteModal,
+
   },
   data() {
     return {
@@ -93,7 +96,9 @@ export default {
       p: {},
       url: "https://5fc82e232af77700165ad172.mockapi.io/api/productos",
       show: true,
-      selected: 'Elija un filtro'
+      selected: 'Elija un filtro',
+      numFilter: null,
+      sms: "Message in a bottle"
     };
   },
   mounted() {
@@ -158,7 +163,9 @@ export default {
       this.show = !this.show
     },
     filter() {
-      console.log(this.selected);
+      // console.log(this.selected, this.numFilter);
+      this.$router.push({name: '/tableFiltered', params: {sms: this.sms}});
+      console.log(this.sms)
     }
   },
 };
@@ -200,5 +207,9 @@ input[type="checkbox"]:before {
 }
 input:checked[type="checkbox"]:before {
   left: 25px;
+}
+#numFilter {
+  margin-left: 1em;
+  width: 4em;
 }
 </style>
