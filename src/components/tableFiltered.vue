@@ -1,14 +1,14 @@
 <template>
   <div>
-    <h3>vamos a la tabla filtrada {{ this.sms }}</h3>
+    <h3 v-for="item in arreglo" :key="item.id">{{ item }}</h3>
   </div>
 </template>
 <script>
 export default {
   props: {
-    sms: {
-      type: String,
-      required: true,
+    arreglo: {
+      type: Array,
+      required: true
     },
   },
 };
