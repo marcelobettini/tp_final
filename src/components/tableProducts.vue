@@ -8,14 +8,31 @@
       >
         agregar
       </button>
-      <input type="checkbox" class="switch" @click="toggleShow">
+      <input type="checkbox" class="switch" @click="toggleShow" />
       <select v-model="selected" v-show="!show" name="filter" id="filter">
-        <option selected disabled>Elija un filtro</option> 
-        <option name="nofilter" id="noFilter">Todos los productos</option>
-        <option name="maxPrice" id="maxPrice">Filtrar precio máximo</option>
-      </select>      
-      <input name="numFilter" id="numFilter" type="number" v-show="!show">
-      <button class="btn btn-sm btn-success ml-2" @click="filter" v-show="!show" >filtrar</button>
+        <option selected disabled>Elija un filtro</option>
+        <option selected name="maxPrice" id="maxPrice"
+          >Filtrar precio máximo</option
+        >
+        <option selected name="minStock" id="minStock"
+          >Filtrar stock mínimo</option
+        >
+      </select>
+      <input
+        v-model="numFilter"
+        name="numFilter"
+        id="numFilter"
+        type="number"
+        v-show="!show"
+      />
+      <button
+        class="btn btn-sm btn-success ml-2"
+        @click="filter"
+        v-show="!show"
+        :disabled="isDisabled"
+      >
+        filtrar
+      </button>
     </div>
 
     <table class="table table-dark">
@@ -83,7 +100,6 @@ export default {
     addModal,
     editModal,
     deleteModal,
-
   },
   data() {
     return {
@@ -96,10 +112,15 @@ export default {
       p: {},
       url: "https://5fc82e232af77700165ad172.mockapi.io/api/productos",
       show: true,
-      selected: 'Elija un filtro',
+      selected: "Elija un filtro",
       numFilter: null,
-      sms: "Message in a bottle"
+      productsFiltered: [],
     };
+  },
+  computed: {
+    isDisabled: function() {
+      return this.selected === "Elija un filtro";
+    },
   },
   mounted() {
     // const url = "https://5fc82e232af77700165ad172.mockapi.io/api/productos";
@@ -160,13 +181,26 @@ export default {
         .then(this.getProducts(this.url));
     },
     toggleShow() {
-      this.show = !this.show
+      this.show = !this.show;
     },
     filter() {
-      // console.log(this.selected, this.numFilter);
-      this.$router.push({name: '/tableFiltered', params: {sms: this.sms}});
-      console.log(this.sms)
-    }
+      if (this.selected == "Filtrar precio máximo" && this.numFilter > 0) {
+        this.productsFiltered = this.products.filter(
+          (e) => e.precio <= Number(this.numFilter)
+        );
+      } else if (
+        this.selected == "Filtrar stock mínimo" &&
+        this.numFilter > 0
+      ) {
+        this.productsFiltered = this.products.filter(
+          (e) => e.stock <= Number(this.numFilter)
+        );
+      }
+      this.$router.push({
+        name: "/tableFiltered",
+        params: { arreglo: this.productsFiltered },
+      });
+    },
   },
 };
 </script>
@@ -202,8 +236,8 @@ input[type="checkbox"]:before {
   outline: none;
   border-radius: 10px;
   box-shadow: 0 0 0 1px #ffae00;
-  transform: scale(.98, .96);
-  transition: .2s;
+  transform: scale(0.98, 0.96);
+  transition: 0.2s;
 }
 input:checked[type="checkbox"]:before {
   left: 25px;
