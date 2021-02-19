@@ -13,7 +13,7 @@
       </tbody>
       <tfoot>
         <td colspan="6">
-          <button class="btn btn-primary" @click="btnClick">Volver</button>
+          <button class="btn btn-primary" @click="goBack">Volver</button>
         </td>
       </tfoot>
     </table>
@@ -30,8 +30,8 @@ export default {
     },
   },
   methods: {
-    btnClick() {
-      this.$router.push("name: tableProducts" )
+    goBack() {
+    this.$router.go(-1)
     }
   },
 };
