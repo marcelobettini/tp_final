@@ -53,7 +53,7 @@ const routes = [
   },
   {
     path: '/tableFiltered',
-    name: '/tableFiltered',
+    name: 'tableFiltered',
     component: tableFiltered,
     props: true
   }

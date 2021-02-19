@@ -197,7 +197,7 @@ export default {
         );
       }
       this.$router.push({
-        name: "/tableFiltered",
+        name: "tableFiltered",
         params: { arreglo: this.productsFiltered },
       });
     },
