@@ -29,7 +29,7 @@
         class="btn btn-sm btn-success ml-2"
         @click="filter"
         v-show="!show"
-        :disabled="isDisabled"
+        :disabled="isDisabled || isEmpty"
       >
         filtrar
       </button>
@@ -121,6 +121,9 @@ export default {
     isDisabled: function() {
       return this.selected === "Elija un filtro";
     },
+    isEmpty: function() {
+      return this.numFilter <= 0;
+    }
   },
   mounted() {
     // const url = "https://5fc82e232af77700165ad172.mockapi.io/api/productos";
@@ -197,7 +200,7 @@ export default {
         );
       }
       this.$router.push({
-        name: "/tableFiltered",
+        name: "tableFiltered",
         params: { arreglo: this.productsFiltered },
       });
     },
