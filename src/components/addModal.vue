@@ -69,6 +69,7 @@ export default {
       this.$emit("add-product", {
         product: this.p,
       });
+      this.$router.push('progress')
     },
     getProducts() {
       this.$emit("get-products", 

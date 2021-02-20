@@ -38,27 +38,35 @@
           <Label for="stock">STOCK</Label><br />
           <input name="stock" v-model="p.stock" />
         </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" @click.prevent="getProducts" data-dismiss="modal">
+            
+        <div class="modal-footer">          
+          <button
+            type="button"
+            class="btn btn-secondary"
+            @click.prevent="getProducts"
+            data-dismiss="modal"
+          >
             Cancelar
           </button>
           <button
             type="button"
             class="btn btn-primary"
             @click.prevent="editProduct"
-            data-dismiss="modal"
+            data-dismiss="modal"            
           >
             Modificar
           </button>
-        </div>
-      </div>      
+        </div>        
+      </div>
+      
     </div>
   </div>
 </template>
 
 <script>
 
-export default {
+export default { 
+  
   data() {
     return {
       p: {},
@@ -72,21 +80,21 @@ export default {
     },
   },
   updated() {
-    this.p = Object.assign(this.product);    
+    this.p = Object.assign(this.product);
   },
   methods: {
     editProduct() {
       this.$emit("edit-product", {
-        product: this.p,
+        product: this.p,        
       });
+      this.$router.push('progress')
     },
     getProducts() {
-      this.$emit("get-products", 
+      this.$emit("get-products",
       this.url )
     }
   },
 };
 </script>
 
-<style scoped>
-</style>
+<style scoped></style>

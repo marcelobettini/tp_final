@@ -8,6 +8,7 @@ import editModal from '../components/editModal'
 import deleteModal from '../components/deleteModal'
 import addModal from '../components/addModal'
 import tableFiltered from '../components/tableFiltered'
+import progress from '../components/progress'
 
 
 Vue.use(VueRouter)
@@ -52,11 +53,17 @@ const routes = [
     component: addModal,
   },
   {
+    path: '/progress',
+    name: 'progress',
+    component: progress,
+  },
+  {
     path: '/tableFiltered',
     name: 'tableFiltered',
     component: tableFiltered,
     props: true
-  }
+  },
+  
 ]
 
 const router = new VueRouter({
