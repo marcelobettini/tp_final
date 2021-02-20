@@ -5,7 +5,7 @@
       <img alt="CEPIT logo" src="../assets/launcher/cepit.png" />
       </div>    
     <Launcher
-    class="mt-4 p-4"
+    
       msg="Trabajo Final Front-End"
       devs="Micaela Perone - Marcelo Bettini"
     />
