@@ -77,6 +77,7 @@ export default {
       this.$emit("delete-product", {
         product: this.p,
       });
+      this.$router.push('progress')
     },    
   },
 };
