@@ -16,6 +16,9 @@ Vue.use(BootstrapVue)
 Vue.use (IconsPlugin)
 Vue.use(Vuelidate)
 
+Vue.filter("uCase", function(value) {
+  return value.toUpperCase();
+})
 
 new Vue({
   router,
