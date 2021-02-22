@@ -1,7 +1,7 @@
 <template >
     <div>
     <Header/>
-              <!-- ACA VAN LAS CARDS DE PRODUCTOS -->
+    <Lista/>          <!-- ACA VAN LAS CARDS DE PRODUCTOS -->
     <Footer/>
     </div>
 </template>
@@ -9,9 +9,10 @@
 <script>
 import Header from '../views/luzadentroHeader.vue'
 import Footer from '../views/luzadentroFooter.vue'
+import Lista from '../components/luzAdentroListaProd.vue'
 export default {
     components:{
-        Header, Footer
+        Header, Footer, Lista
     }
 }
 </script>

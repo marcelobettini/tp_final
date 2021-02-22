@@ -14,6 +14,7 @@ import luzadentroProductos from '../views/luzadentroProductos'
 
 Vue.use(VueRouter)
 
+
 const routes = [
   {
     path: '/',
