@@ -58,6 +58,7 @@
             type="button"
             class="btn btn-primary"
             @click.prevent="addProduct"
+            :disabled="$v.$invalid"
             data-dismiss="modal"
           >
             Agregar

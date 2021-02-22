@@ -95,6 +95,7 @@ import editModal from "../components/editModal";
 import deleteModal from "../components/deleteModal";
 import addModal from "../components/addModal";
 
+
 export default {
   components: {
     addModal,
@@ -207,7 +208,7 @@ export default {
   },
 };
 </script>
-<style scoped>
+<style>
 tbody tr:nth-child(odd) {
   background-color: rgb(41, 44, 43);
 }
