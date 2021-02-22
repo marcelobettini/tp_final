@@ -9,6 +9,10 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 Vue.config.productionTip = false
 Vue.use(Vuelidate)
 
+Vue.filter("uCase", function(value) {
+  return value.toUpperCase();
+})
+
 new Vue({
   router,
   store,

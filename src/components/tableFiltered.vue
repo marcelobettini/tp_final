@@ -11,7 +11,7 @@
             v-for="key in keyNames"
             :key="key.index"
           >
-            {{ key.toUpperCase() }}
+            {{ key | uCase }}
           </th>         
         </tr>
       </thead>
