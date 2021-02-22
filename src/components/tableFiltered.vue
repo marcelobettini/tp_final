@@ -3,6 +3,18 @@
   <table-home-header></table-home-header>
   <div class="container">
     <table class="table table-dark">
+      <thead>
+        <tr>
+           <th
+            class="text-warning"
+            scope="col"
+            v-for="key in keyNames"
+            :key="key.index"
+          >
+            {{ key.toUpperCase() }}
+          </th>         
+        </tr>
+      </thead>
       <tbody>
         <tr v-for="item in arreglo" :key="item.id">
           <td>{{ item.id }}</td>
@@ -29,11 +41,19 @@ export default {
   components: {
     tableHomeHeader
   },
+  data() {
+    return {
+      keyNames: [],
+    }
+  },
   props: {
     arreglo: {
       type: Array,
       required: true,
     },
+  },
+  mounted() {
+    this.keyNames = Object.keys(this.arreglo[0]);
   },
   methods: {
     goBack() {

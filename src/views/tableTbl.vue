@@ -1,6 +1,8 @@
 <template>
     <div>
+        
         <table-home-header/>
+        
         <table-products/>        
 
     </div>
