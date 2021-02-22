@@ -1,7 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
-import About from '../views/About'
 import tableHome from '../views/tableHome'
 import tableTbl from '../views/tableTbl'
 import editModal from '../components/editModal'
@@ -10,6 +9,8 @@ import addModal from '../components/addModal'
 import tableFiltered from '../components/tableFiltered'
 import progress from '../components/progress'
 
+import About from '../views/About'
+import luzadentroProductos from '../views/luzadentroProductos'
 
 Vue.use(VueRouter)
 
@@ -63,7 +64,11 @@ const routes = [
     component: tableFiltered,
     props: true
   },
-  
+  {
+    path: '/luzadentroProductos',
+    name: 'luzadentroProductos',
+    component: luzadentroProductos,
+  },
 ]
 
 const router = new VueRouter({
