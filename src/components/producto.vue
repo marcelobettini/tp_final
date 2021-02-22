@@ -1,19 +1,19 @@
 <template >
-<div>
+<div >
   <b-card
     :title="producto.Modelo " 
     :img-src="producto.Imagen"
     img-alt="Image"
     img-top
     tag="article"
-    style="max-width: 20rem;"
+    style="max-width: 20rem; negro; mb-3"
     class="mb-2"
   >
-    <b-card-text :>
-    <p>"producto.Texto"</p> 
+    <b-card-text>
+    {{producto.Texto}}
     </b-card-text>
 
-    <b-button href="#" variant="primary">Go somewhere</b-button>
+    <b-button href="https://www.luzadentro.com/" variant="warning">Ver en la tienda</b-button>
   </b-card>
 </div>
 </template>
@@ -28,7 +28,7 @@ export default {
 }
 </script>
 <style >
-    .b-card{
+    .negro{
         color: black;
     }
 </style>

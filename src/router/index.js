@@ -11,6 +11,7 @@ import progress from '../components/progress'
 
 import About from '../views/About'
 import luzadentroProductos from '../views/luzadentroProductos'
+import luzadentroContactos from '../views/luzadentroContactos'
 
 Vue.use(VueRouter)
 
@@ -69,6 +70,11 @@ const routes = [
     path: '/luzadentroProductos',
     name: 'luzadentroProductos',
     component: luzadentroProductos,
+  },
+  {
+    path: '/luzadentroContactos',
+    name: 'luzadentroContactos',
+    component: luzadentroContactos,
   },
 ]
 
