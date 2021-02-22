@@ -1,4 +1,6 @@
 <template>
+<div>
+  <table-home-header></table-home-header>
   <div class="container">
     <table class="table table-dark">
       <tbody>
@@ -18,11 +20,15 @@
       </tfoot>
     </table>
   </div>
+  </div>
 </template>
 <script>
 
-
+import tableHomeHeader from '../views/tableHomeHeader'
 export default {
+  components: {
+    tableHomeHeader
+  },
   props: {
     arreglo: {
       type: Array,
