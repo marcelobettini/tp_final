@@ -1,7 +1,7 @@
 <template >
     <div>
     <Header/>
-              <!-- ACA VA el modal -->
+    <Contacto/>          
     <Footer/>
     </div>
 </template>
