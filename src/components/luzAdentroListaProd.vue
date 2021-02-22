@@ -1,5 +1,5 @@
 <template >
-    <div class="d-flex flex-wrap justify-content-around mt-4">
+    <div class="d-flex flex-wrap justify-content-around mt-4 ">
         <Producto v-for="producto in productos" :key="producto.id" :producto="producto">
         </Producto>
     </div>
@@ -32,7 +32,7 @@ export default {
             "Brillo": "Opaca",
             "Stock": "Si",
             "Imagen": "https://scontent-eze1-1.xx.fbcdn.net/v/t1.0-9/152755026_10224698587682742_8732729198665341431_o.jpg?_nc_cat=101&ccb=3&_nc_sid=0debeb&_nc_ohc=OnMD6npfIFUAX_nyvug&_nc_ht=scontent-eze1-1.xx&oh=a53dd23d4d5bfa47d1d155ca37b95f17&oe=60573CA4",
-            "Texto": "14 compartimentos"
+            "Texto": "14 compartimentos para que lleves todo lo que necesitás."
         },
         {
             "id": 3,
@@ -41,7 +41,8 @@ export default {
             "Color": "Verde",
             "Brillo": "Brillante",
             "Stock": "Si",
-            "Imagen": "https://scontent-eze1-1.xx.fbcdn.net/v/t1.0-9/152443822_10224698587722743_2126588051032735549_o.jpg?_nc_cat=110&ccb=3&_nc_sid=0debeb&_nc_ohc=Tyegiqy24tsAX_KIAg5&_nc_ht=scontent-eze1-1.xx&oh=7a9cac3217affa882e48c5e29a5656ad&oe=6058E956"
+            "Imagen": "https://scontent-eze1-1.xx.fbcdn.net/v/t1.0-9/152443822_10224698587722743_2126588051032735549_o.jpg?_nc_cat=110&ccb=3&_nc_sid=0debeb&_nc_ohc=Tyegiqy24tsAX_KIAg5&_nc_ht=scontent-eze1-1.xx&oh=7a9cac3217affa882e48c5e29a5656ad&oe=6058E956",
+            "Texto": "La mínima expresión posible de la #BilleClasica."
           },
         {
             "id": 4,
@@ -69,6 +70,6 @@ export default {
     }
 }
 </script>
-<style lang="">
+<style >
     
 </style>
