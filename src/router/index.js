@@ -12,6 +12,8 @@ import progress from '../components/progress'
 import About from '../views/About'
 import luzadentroProductos from '../views/luzadentroProductos'
 import luzadentroContactos from '../views/luzadentroContactos'
+import Login from '../views/auth/Login'
+import Register from '../views/auth/Register'
 
 Vue.use(VueRouter)
 
@@ -75,6 +77,16 @@ const routes = [
     path: '/luzadentroContactos',
     name: 'luzadentroContactos',
     component: luzadentroContactos,
+  },
+  {
+    path: '/Login',
+    name: 'Login',
+    component: Login
+  },
+  {
+    path: '/Register',
+    name: 'Register',
+    component: Register
   },
 ]
 
