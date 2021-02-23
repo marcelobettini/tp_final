@@ -11,6 +11,7 @@ import tableHomeHeader from "../views/tableHomeHeader.vue";
 import tableHomeBanner from "../views/tableHomeBanner.vue";
 import tableHomeFooter from "../views/tableHomeFooter.vue";
 
+
 export default {
   components: { tableHomeHeader, tableHomeBanner, tableHomeFooter },
 };

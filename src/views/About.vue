@@ -13,9 +13,10 @@ import Presentacion from '../views/luzadentroPresentacion.vue'
 import Footer from '../views/luzadentroFooter.vue'
 import Carrusel from '../components/luzAdentroCarrusel.vue'
 
+
 export default {
     components:{
-        Header, Presentacion, Footer, Carrusel
+        Header, Presentacion, Footer, Carrusel,
     }
 }
 </script>
