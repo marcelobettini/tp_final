@@ -1,11 +1,11 @@
 <template>
-  <div>
+  <div class="container w-50 p-4">
     <b-form @submit="onSubmit" @reset="onReset" v-if="show">
       <b-form-group
         id="input-group-1"
         label="Dejanos tu mail:"
         label-for="input-1"
-        
+
       >
         <b-form-input
           id="input-1"
@@ -33,18 +33,20 @@
           required
         ></b-form-input>
       </b-form-group>
-
-      <b-button type="submit" variant="warning">Submit</b-button>
-      <b-button type="reset" variant="secondary">Reset</b-button>
+    
+      <b-button type="reset"  variant="secondary">Cancel</b-button>
+      <b-button v-b-modal.modal-1 variant="warning">Enviar</b-button>
+    
     </b-form>
-    <b-card class="mt-3" header="Form Data Result">
-      <pre class="m-0">{{ form }}</pre>
-    </b-card>
+    <LAModal/>
+    
   </div>
 </template>
 
 <script>
+import LAModal from '../components/luzAdentroModalConfirmacion.vue'
   export default {
+    components: {LAModal},
     data() {
       return {
         form: {

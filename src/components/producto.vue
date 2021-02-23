@@ -1,23 +1,28 @@
 <template >
-<div >
- 
+<div deck class="d-flex">
+  
   <b-card
-    :title="producto.Modelo " 
+    
     :img-src="producto.Imagen"
     img-alt="Image"
     img-top
     tag="article"
-    style="max-width: 20rem; mb-3; tarjeta"
+    style="max-width: 15rem; mb-3; tarjeta"
     class="mb-2"
     border-variant="secondary"
     bg-variant="dark"
     text-variant="white"
+    footer-tag="footer"
   >
+    <template #header >
+      <h5 class="mb-0 ">{{producto.Modelo}}</h5>
+    </template>
     <b-card-text>
     {{producto.Texto}}
     </b-card-text>
-
-    <b-button href="https://www.luzadentro.com/" variant="warning">Ver en la tienda</b-button>
+    <template #footer>
+      <b-button  href="https://www.luzadentro.com/" variant="outline-warning">Ver en la tienda</b-button>
+    </template>
   </b-card>
  
 </div>
@@ -35,5 +40,6 @@ export default {
 <style >
     .tarjeta{
       background-color: grey;
+    
     }
 </style>
