@@ -8,7 +8,13 @@
       <div class="container-fluid">
         <div class="row my-5 justify-content-between">
           <div class="card pt-3 col-lg-3 col-md-6 col-sm-12">
-            <img src="../assets/part2/carnes.jpg" class="card-img" alt="carnes" />
+            <div class="zoom">
+              <img
+                src="../assets/part2/carnes.jpg"
+                class="card-img"
+                alt="carnes"
+              />
+            </div>
             <div class="card-body">
               <h5 class="card-title">Carnes</h5>
               <p class="card-text">
@@ -19,7 +25,13 @@
             </div>
           </div>
           <div class="card pt-3 col-lg-3 col-md-6 col-sm-12">
-            <img src="../assets/part2/lacteos.jpg" class="card-img" alt="lácteos" />
+            <div class="zoom">
+              <img
+                src="../assets/part2/lacteos.jpg"
+                class="card-img"
+                alt="lácteos"
+              />
+            </div>
             <div class="card-body">
               <h5 class="card-title">Lácteos</h5>
               <p class="card-text">
@@ -30,11 +42,13 @@
             </div>
           </div>
           <div class="card pt-3 col-lg-3 col-md-6 col-sm-12">
-            <img
-              src="../assets/part2/frutas_verduras.jpg"
-              class="card-img"
-              alt="frutas y verduras"
-            />
+            <div class="zoom">
+              <img
+                src="../assets/part2/frutas_verduras.jpg"
+                class="card-img"
+                alt="frutas y verduras"
+              />
+            </div>
             <div class="card-body">
               <h5 class="card-title">Frutas y Vegetales</h5>
               <p class="card-text">
@@ -45,11 +59,13 @@
             </div>
           </div>
           <div class="card pt-3 col-lg-3 col-md-6 col-sm-12">
-            <img
-              src="../assets/part2/chacinados.jpg"
-              class="card-img"
-              alt="charcutería"
-            />
+            <div class="zoom">
+              <img
+                src="../assets/part2/chacinados.jpg"
+                class="card-img"
+                alt="charcutería"
+              />
+            </div>
             <div class="card-body">
               <h5 class="card-title">Charcutería</h5>
               <p class="card-text">
@@ -64,3 +80,15 @@
     </section>
   </div>
 </template>
+
+<style>
+.zoom {
+  overflow: hidden;
+}
+.zoom img {
+  transition: all 1.5s ease;
+}
+.zoom:hover img {
+  transform: scale(1.5);
+}
+</style>
