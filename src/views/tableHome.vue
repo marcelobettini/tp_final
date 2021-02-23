@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div>    
     <table-home-header />
     <table-home-banner />
     <table-home-footer />
