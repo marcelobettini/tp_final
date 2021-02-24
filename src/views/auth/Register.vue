@@ -2,8 +2,9 @@
   <div>
     <table-home-header />
 
-    <div class="container">
-      <h4 class="mt-3 mb-4">CREAR NUEVO USUARIO</h4>
+   <div class="row">
+      <div class="col-lg-4 offset-lg-4 col-sm-6 offset-sm-3 col-8 offset-2">
+      <h4 class="mt-4 mb-4">CREAR NUEVO USUARIO</h4>
 
       <form @submit.prevent="register">
         <div class="form-group">
@@ -32,7 +33,7 @@
           >
         </div>
         <div class="form-group">
-          <label for="pass">Password</label>
+          <label for="pass">Contraseña</label>
           <input
             type="password"
             class="form-control"
@@ -50,11 +51,13 @@
       </div>
     </div>
   </div>
+  </div>
 </template>
 <script>
-import tableHomeHeader from "../tableHomeHeader";
-import '@/firebase/init.js';
+import "@/firebase/init.js";
 import firebase from "firebase";
+import tableHomeHeader from "../tableHomeHeader";
+
 export default {
   data() {
     return {
@@ -68,16 +71,14 @@ export default {
   name: "Register",
   methods: {
     register() {
-      this.error = '';
+      this.error = "";
       if (this.name && this.email && this.pass) {
         firebase
           .auth()
           .createUserWithEmailAndPassword(this.email, this.pass)
           .then((user) => {
-            console.log(user);
-            this.name = "";
-            this.email = "";
-            this.pass = "";
+            
+            this.$router.push({name: 'dashboard', params: {user}})            
           })
           .catch((err) => {
             this.error = err.message;
