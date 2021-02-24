@@ -36,4 +36,8 @@
     font-size: 16px;
     color: rgb(34, 33, 33);
 }
+.carousel-control-prev-icon, .carousel-control-next-icon {
+    filter: invert(1);    
+}
+
 </style>
