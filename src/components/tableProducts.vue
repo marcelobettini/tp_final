@@ -1,5 +1,6 @@
 <template>
   <div class="container">
+    <table-pre-loader />
     <div id="tableCtrl" class="container d-flex m-4 align-items-center">
       <button
         class="btn btn-warning"
@@ -94,10 +95,11 @@
 import editModal from "../components/editModal";
 import deleteModal from "../components/deleteModal";
 import addModal from "../components/addModal";
-
+import tablePreLoader from './tablePreLoader.vue';
 
 export default {
   components: {
+    tablePreLoader,
     addModal,
     editModal,
     deleteModal,
@@ -124,7 +126,7 @@ export default {
     },
     isEmpty: function() {
       return this.numFilter <= 0;
-    }
+    },
   },
   mounted() {
     // const url = "https://5fc82e232af77700165ad172.mockapi.io/api/productos";
@@ -199,11 +201,15 @@ export default {
         this.productsFiltered = this.products.filter(
           (e) => e.stock <= Number(this.numFilter)
         );
-      }
-      this.$router.push({
-        name: "tableFiltered",
-        params: { arreglo: this.productsFiltered },
-      });
+      }      
+      if (this.productsFiltered.length > 0) {
+        this.$router.push({
+          name: "tableFiltered",
+          params: { arreglo: this.productsFiltered },
+        });
+        }else {
+          alert("No hay productos en el rango indicado");
+        }      
     },
   },
 };
