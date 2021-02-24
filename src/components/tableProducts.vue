@@ -95,7 +95,6 @@ import editModal from "../components/editModal";
 import deleteModal from "../components/deleteModal";
 import addModal from "../components/addModal";
 
-
 export default {
   components: {
     addModal,
@@ -124,7 +123,7 @@ export default {
     },
     isEmpty: function() {
       return this.numFilter <= 0;
-    }
+    },
   },
   mounted() {
     // const url = "https://5fc82e232af77700165ad172.mockapi.io/api/productos";
@@ -200,10 +199,14 @@ export default {
           (e) => e.stock <= Number(this.numFilter)
         );
       }
-      this.$router.push({
-        name: "tableFiltered",
-        params: { arreglo: this.productsFiltered },
-      });
+      if (this.productsFiltered.lenght >= 1) {
+        this.$router.push({
+          name: "tableFiltered",
+          params: { arreglo: this.productsFiltered },
+        });
+      } else {
+        alert("alertaaaaa");
+      }
     },
   },
 };

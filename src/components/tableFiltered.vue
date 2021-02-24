@@ -52,7 +52,7 @@ export default {
       required: true,
     },
   },
-  mounted() {
+  mounted() {    
     this.keyNames = Object.keys(this.arreglo[0]);
   },
   methods: {
