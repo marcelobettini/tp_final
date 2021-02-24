@@ -4,11 +4,11 @@
    <div><img src="../assets/LuzAdentro/Icono para NavBar.svg" width="100%"  alt="Icono" > </div>
 
    <div class="container d-flex justify-content-end">
-   <a class="navbar-brand" href="https://www.instagram.com/luzadentro/">
+   <a class="navbar-brand" href="https://www.instagram.com/luzadentro/" target="blank">
     <img src="../assets/LuzAdentro/instagram-logo1-1024x1024.png" width="30" height="30" alt="Instagram logo" >
     <span class="button-font ml-2 ">/luzadentro</span>
    </a>
-   <a class="navbar-brand" href="https://www.facebook.com/luz.adentro/">
+   <a class="navbar-brand" href="https://www.facebook.com/luz.adentro/" target="blank">
     <img src="../assets/LuzAdentro/facebooklogo.png" width="30" height="30" alt="Facebook Logo">
     <span class="button-font ml-2 ">/luz.adentro</span>
    </a>
