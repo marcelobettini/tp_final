@@ -1,24 +1,3 @@
-# tp_final
-
-## Project setup
-```
-npm install
-```
-
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+La primera parte del trabajo está orientada al maquetado y la segunda a la lógica de CRUD.
+Cada uno desarrolló una parte del trabajo tomando el práctico presentado para las etapas anteriores. Mientras tanto, fuimos viendo el código en que no estábamos trabajando para entender el funcionamiento y hacer aportes y posibles mejoras.
+La porción de login y sign up no estaría originalmente en el trabajo pues no habíamos llegado a estudiarla, pero el martes finalmente encaramos el tema luego de repasar la bibliografía y ver tutoriales. Quedó funcionando aunque no está desarrollado en profundidad (crea un usuario en Firebase y también se loguea con usuarios ya creados). Utiliza esa información para acceder a una pantalla a la que no se puede llegar de otra manera.
