@@ -21,7 +21,7 @@ export default {
         clearInterval(interval)
         this.$router.go(-1)
       }
-    },15)
+    },10)
     
   }
 };

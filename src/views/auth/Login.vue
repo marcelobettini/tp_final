@@ -67,7 +67,13 @@ export default {
             this.$router.push({name: 'dashboard', params: {user}})            
           })
           .catch((err) => {
-            this.error = err.message;
+            if(err.code == "auth/user-not-found") {
+              this.error = "No se encuentra el usuario. Debe registrarse";
+            } else {
+              this.error = "Usuario o contraseña no concuerdan"
+            }
+            
+            
           });
       } else {
         this.error = "Debe completar todos los campos";

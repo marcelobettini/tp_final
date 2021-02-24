@@ -1,5 +1,6 @@
 <template>
   <div class="container">
+    <table-pre-loader />
     <div id="tableCtrl" class="container d-flex m-4 align-items-center">
       <button
         class="btn btn-warning"
@@ -94,9 +95,11 @@
 import editModal from "../components/editModal";
 import deleteModal from "../components/deleteModal";
 import addModal from "../components/addModal";
+import tablePreLoader from './tablePreLoader.vue';
 
 export default {
   components: {
+    tablePreLoader,
     addModal,
     editModal,
     deleteModal,
@@ -198,15 +201,15 @@ export default {
         this.productsFiltered = this.products.filter(
           (e) => e.stock <= Number(this.numFilter)
         );
-      }
-      if (this.productsFiltered.lenght >= 1) {
+      }      
+      if (this.productsFiltered.length > 0) {
         this.$router.push({
           name: "tableFiltered",
           params: { arreglo: this.productsFiltered },
         });
-      } else {
-        alert("alertaaaaa");
-      }
+        }else {
+          alert("No hay productos en el rango indicado");
+        }      
     },
   },
 };

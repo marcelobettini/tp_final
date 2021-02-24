@@ -80,8 +80,8 @@ export default {
             
             this.$router.push({name: 'dashboard', params: {user}})            
           })
-          .catch((err) => {
-            this.error = err.message;
+          .catch(() => {
+            this.error = "La dirección de email ya se encuentra registrada por otro usuario";
           });
       } else {
         this.error = "Debe completar todos los campos";
