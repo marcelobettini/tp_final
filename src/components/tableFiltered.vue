@@ -1,8 +1,8 @@
 <template>
 <div>
-  <table-home-header></table-home-header>
+  <table-home-header />
   <div class="container">
-    <table class="table table-dark">
+    <table class="table table-dark">      
       <thead>
         <tr>
            <th

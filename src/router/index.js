@@ -1,87 +1,106 @@
-import Vue from 'vue'
-import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
-import tableHome from '../views/tableHome'
-import tableTbl from '../views/tableTbl'
-import editModal from '../components/editModal'
-import deleteModal from '../components/deleteModal'
-import addModal from '../components/addModal'
-import tableFiltered from '../components/tableFiltered'
-import progress from '../components/progress'
+import Vue from "vue";
+import VueRouter from "vue-router";
+import Home from "../views/Home.vue";
+import tableHome from "../views/tableHome";
+import tableTbl from "../views/tableTbl";
+import editModal from "../components/editModal";
+import deleteModal from "../components/deleteModal";
+import addModal from "../components/addModal";
+import tableFiltered from "../components/tableFiltered";
+import progress from "../components/progress";
 
-import About from '../views/About'
-import luzadentroProductos from '../views/luzadentroProductos'
-import luzadentroContactos from '../views/luzadentroContactos'
+import About from "../views/About";
+import luzadentroProductos from "../views/luzadentroProductos";
+import luzadentroContactos from "../views/luzadentroContactos";
+import Login from "../views/auth/Login";
+import Register from "../views/auth/Register";
+import Dashboard from "../views/auth/Dashboard";
 
-Vue.use(VueRouter)
 
+Vue.use(VueRouter);
 
 const routes = [
   {
-    path: '/',
-    name: 'Home',
-    component: Home
+    path: "/",
+    name: "Home",
+    component: Home,
   },
   {
-    path: '/about',
-    name: 'About',
+    path: "/about",
+    name: "About",
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: About,
   },
   {
-    path: '/tableHome',
-    name: 'tableHome',
+    path: "/tableHome",
+    name: "tableHome",
     component: tableHome,
   },
   {
-    path: '/tableTbl',
-    name: 'tableTbl',
+    path: "/tableTbl",
+    name: "tableTbl",
     component: tableTbl,
   },
   {
-    path: '/editModal',
-    name: 'editModal',
+    path: "/editModal",
+    name: "editModal",
     component: editModal,
   },
   {
-    path: '/deleteModal',
-    name: 'deleteModal',
+    path: "/deleteModal",
+    name: "deleteModal",
     component: deleteModal,
   },
   {
-    path: '/addModal',
-    name: 'addModal',
+    path: "/addModal",
+    name: "addModal",
     component: addModal,
   },
   {
-    path: '/progress',
-    name: 'progress',
+    path: "/progress",
+    name: "progress",
     component: progress,
   },
   {
-    path: '/tableFiltered',
-    name: 'tableFiltered',
+    path: "/tableFiltered",
+    name: "tableFiltered",
     component: tableFiltered,
-    props: true
+    props: true,
   },
   {
-    path: '/luzadentroProductos',
-    name: 'luzadentroProductos',
+    path: "/luzadentroProductos",
+    name: "luzadentroProductos",
     component: luzadentroProductos,
   },
   {
-    path: '/luzadentroContactos',
-    name: 'luzadentroContactos',
+    path: "/luzadentroContactos",
+    name: "luzadentroContactos",
     component: luzadentroContactos,
   },
-]
+  {
+    path: "/login",
+    name: "Login",
+    component: Login,
+  },
+  {
+    path: "/register",
+    name: "Register",
+    component: Register,
+  },
+  {
+    path: "/dashboard",
+    name: "dashboard",
+    component: Dashboard,
+    props: true,    
+  },
+];
 
 const router = new VueRouter({
-  mode: 'history',
+  mode: "history",
   base: process.env.BASE_URL,
-  routes
-})
+  routes,
+});
 
-export default router
+export default router;
