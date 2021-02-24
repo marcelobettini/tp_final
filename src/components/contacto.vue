@@ -34,8 +34,8 @@
         ></b-form-input>
       </b-form-group>
     
-      <b-button type="reset"  variant="secondary">Cancel</b-button>
-      <b-button v-b-modal.modal-1 variant="warning">Enviar</b-button>
+      <b-button type="reset"  variant="secondary" class="m-2">Cancel</b-button>
+      <b-button v-b-modal.modal-1 variant="warning" class="m-2"> Enviar</b-button>
     
     </b-form>
     <LAModal/>
