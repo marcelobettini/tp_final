@@ -3,6 +3,7 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import Vuelidate from 'vuelidate'
+import firebase from 'firebase'
 import 'bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -20,8 +21,14 @@ Vue.filter("uCase", function(value) {
   return value.toUpperCase();
 })
 
+//esto evita que se creen nuevas instancias cada vez que se abre/cierra sesión
+let app = null;
+firebase.auth().onAuthStateChanged(() => {
+  if(!app) {
 new Vue({
   router,
   store,
   render: h => h(App)
 }).$mount('#app')
+  }
+})

@@ -46,7 +46,7 @@
           <Label for="stock">STOCK</Label><br />
           <input type="number" name="stock" v-model="stock" />
           <p class="alert alert-warning" v-if="!$v.stock.required">Este campo no puede estar vacío</p>
-          <p class="alert alert-warning" v-if="!$v.stock.numeric">Debe ingresar un número</p>         
+          <p class="alert alert-warning" v-if="!$v.stock.numeric">Debe ingresar un número positivo</p>         
           <p class="alert alert-warning" v-if="!$v.stock.minValue">Stock mínimo: 1</p>         
            </div>
         </div>

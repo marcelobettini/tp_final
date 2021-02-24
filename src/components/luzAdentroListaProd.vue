@@ -62,7 +62,7 @@ export default {
             "Brillo": "Brillante",
             "Stock": "No",
             "Imagen": "https://scontent-eze1-1.xx.fbcdn.net/v/t1.0-9/152333821_10224698587762744_6966977701542946527_o.jpg?_nc_cat=110&ccb=3&_nc_sid=0debeb&_nc_ohc=oUsjQKDOCRIAX-bHaMG&_nc_ht=scontent-eze1-1.xx&oh=3ff2d5271c2438d6c25266793005d130&oe=6057FEC0",
-            "Texto" : "Dos espacios con una capacidad que te va a asombrar para que lleves con vos todo lo que necesitas."
+            "Texto" : "Dos espacios con capacidad para asombrar, para que lleves con vos todo lo que necesitas."
         }
     
       ]

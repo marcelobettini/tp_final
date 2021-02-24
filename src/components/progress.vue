@@ -34,17 +34,17 @@ export default {
   box-sizing: border-box;
 }
 .container {
-  height: 80vh;
+  height: 100vh;
 }
 .progress-container {
   width: 50vw;  
 }
 
 .progress-slider {
-  font-size: 1.5em;
+  font-size: 18px;
   color: blanchedalmond;
-  padding: .3em;
-  height: 5vh;
+  padding: 5px;
+  height: 40px;
   background-color: rgb(7, 116, 204);
   
 }
