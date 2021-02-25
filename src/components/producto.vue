@@ -15,7 +15,7 @@
     footer-tag="footer"
   >
     <template #header >
-      <h5 class="mb-0 ">{{producto.Modelo}}</h5>
+      <h5 class="mb-0 ">{{producto.Modelo | uCase}}</h5>
     </template>
     <b-card-text>
     {{producto.Texto}}

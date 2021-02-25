@@ -2,15 +2,27 @@
   <div class="hello">
     <h1 class="m-4 p-4">{{ msg }}</h1>
     <h3 class="m-4 p-4">{{ devs }}</h3>  
+    <h5 class="m-4 p-4">{{this.date | filterDate | uCase}}</h5>
     <div class="container m-4 p-4">    
     <a href="https://github.com/marcelobettini/tp_final" target="blank"><img class="github" title="GO TO REPO" src="../assets/part2/github.svg" alt="GitHub Logo" ></a>
     </div>
+    
   </div>
 </template>
 
 <script>
 export default {
   name: 'Launcher',
+  data() {
+    return {
+      date: new Date()
+    }
+  },
+  filters: {
+    filterDate(value) {
+      return  `Hoy es ${value.getDate()}/${value.getMonth()}/${value.getFullYear()}`}
+    },
+  
   props: {
     msg: String,
     devs: String
