@@ -256,4 +256,10 @@ input:checked[type="checkbox"]:before {
   margin-left: 1em;
   width: 4em;
 }
+td, thead {
+  text-align: left;
+}
+tfoot td {
+  text-align: center;
+}
 </style>

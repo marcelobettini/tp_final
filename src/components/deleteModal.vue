@@ -13,7 +13,7 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="ModalLabel">
+          <h5 v-myDirective:back="'#d9534f'" class="modal-title" id="ModalLabel">
             ELIMINAR PRODUCTO - id: {{ product.id }}
           </h5>
           <button
