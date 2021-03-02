@@ -28,15 +28,15 @@
         </div>
         <div class="modal-body">
           <Label for="item">ITEM</Label><br />
-          <input name="item" v-model="p.item" /><br />
+          <input name="item" v-model.lazy="p.item" /><br />
           <Label for="marca">MARCA</Label><br />
-          <input name="marca" v-model="p.marca" /><br />
+          <input name="marca" v-model.lazy="p.marca" /><br />
           <Label for="presentacion">PRESENTACIÓN</Label><br />
-          <input name="presentacion" v-model="p.presentacion" /><br />
+          <input name="presentacion" v-model.lazy="p.presentacion" /><br />
           <Label for="precio">PRECIO</Label><br />
-          <input name="precio" v-model="p.precio" /><br />
+          <input name="precio" v-model.lazy="p.precio" /><br />
           <Label for="stock">STOCK</Label><br />
-          <input name="stock" v-model="p.stock" />
+          <input name="stock" v-model.lazy="p.stock" />
         </div>
             
         <div class="modal-footer">          
